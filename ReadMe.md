@@ -1,35 +1,98 @@
-1. Overview
+Cinema Booking System 
 
-Cinema_FullSystem is a Java Swing desktop application that provides a small cinema/movie booking workflow. It includes a l table view of available movies, seat selection, checkout (mock payment), receipt generation (and saving), and persistent booking storage in a CSV file.
+2. Description / Overview
 
-2. Features
+The Cinema Booking System is a Java desktop application designed to simulate how a real cinema ticket booking system works. It allows users to view available movies, check showtimes, select seats, and complete a booking through a simple and interactive graphical interface. The system automatically calculates the total cost, applies tax, generates a receipt, and saves booking records for future viewing. This project was created to demonstrate Object-Oriented Programming concepts while building a practical and user-friendly application.
 
-GUI built with Java Swing (JFrame, JDialog, JTable, etc.).
-Movie catalogue with title, genre, rating, showtimes and price.
-Sort movies by rating.
-Select movie/showtime and choose seats (6 rows × 8 columns layout).
-Occupied seats are disabled for the same showtime (based on saved bookings).
-Checkout dialog with subtotal, tax (12%), and mock payment.
-Add booking record and append it to a CSV-like file for persistence.
-View past bookings in a modal dialog.
-Save a receipt as a `.txt` file.
-Export all bookings (save/overwrite CSV file).
+3. OOP Concepts Applied
+Encapsulation
 
-3. Runtime behavior & UI flow
+Each part of the system is organized into classes that group related data and behavior together. For example, the Movie class stores movie details, while the Booking class handles customer and booking information. This keeps the code clean, organized, and easier to manage.
 
-1. The main table displays movies loaded from `loadMovies()`.
-2. Select a movie row and click **View Movies** to see details, or click **Book Seats** to start booking.
-3. If no row is selected, **Book Seats** will prompt to choose a movie in a dialog.
-4. Choose a showtime, then pick seats in the `SeatSelectionDialog`. Occupied seats (from saved bookings) are disabled.
-5. Proceed to `CheckoutDialog` to enter name and contact and complete the (mock) payment.
-6. Completed bookings are appended to the CSV file and visible in **View Past Bookings**.
-7. You can export/overwrite all bookings via **Save All & Export CSV**.
+Abstraction
 
-4. Suggested improvements / Enhancements
+Processes such as seat selection, checkout, and receipt generation are separated into their own dialog windows. This allows users to focus on completing tasks without needing to understand how everything works behind the scenes.
 
- Replace CSV with a lightweight embedded DB (SQLite via JDBC) for robust querying and concurrency.* Add input validation and better error dialogs for file I/O errors.
- Add search/filter for movies and a poster image per movie.
- Add export options (PDF receipts) using a library like iText or Apache PDFBox.
- Add unit tests for persistence and booking validation logic.
+Inheritance
+
+The application makes use of inheritance by extending Swing classes like JFrame and JDialog. This allows the program to reuse existing GUI functionality while adding its own features.
+
+Polymorphism
+
+Some methods are overridden to customize behavior, such as disabling table editing or customizing how panels are drawn. This lets different components behave differently while still following the same structure.
+
+4. Program Structure
+Main Classes and Their Roles
+
+Cinema_FullSystem – The main window of the application. It controls the overall flow of the system, manages movies and bookings, and handles user actions.
+
+Movie – Represents a movie with its title, genre, rating, showtimes, and ticket price.
+
+Booking – Stores all details of a completed booking, including customer information, selected seats, and total cost.
+
+SeatSelectionDialog – Displays the seat layout and ensures that already booked seats cannot be selected again.
+
+CheckoutDialog – Shows the price breakdown, collects user details, and confirms the booking.
+
+ReceiptDialog – Displays a receipt after booking and allows the user to save it as a text file.
+
+PastBookingsDialog – Shows a list of all previous bookings saved in the system.
+
+PopcornPanel – A custom panel used for the sidebar background design.
+
+5. How to Run the Program
+Requirements
+
+Java Development Kit (JDK) 8 or higher
+
+A Java IDE (such as IntelliJ IDEA, Eclipse, or NetBeans) or Command Prompt
+
+Steps
+
+Save the main file as Cinema_FullSystem.java.
+
+Compile the program using:
+
+javac Cinema_FullSystem.java
 
 
+Run the program using:
+
+java Cinema_FullSystem
+
+
+The Cinema Booking System window will appear and is ready to use.
+
+6. Sample Output
+******** Cinema Receipt ********
+Movie: Avengers: Endgame
+Showtime: 7:00 PM
+Seats: A1, A2
+Total: 537.60
+*******************************
+
+
+7. Author and Acknowledgement
+
+Author:
+James Kirby Ignacio
+Joshua Arante
+
+Acknowledgement:
+I would like to thank our instructor for guidance throughout this project, as well as online resources such as W3 schools and tutorials that helped in understanding Java and Object-Oriented Programming concepts.
+
+8. Other Sections
+Future Enhancements
+
+Add user accounts and login functionality
+
+Connect the system to a database
+
+Improve the seat selection interface
+
+Add support for multiple cinema halls
+
+Integrate real online payment methods
+
+References:
+Online programming tutorials and forums
