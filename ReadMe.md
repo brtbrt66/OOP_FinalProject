@@ -1,7 +1,8 @@
 1. Project Title
+   
 Cinema Booking System 
 
-2. Description / Overview
+3. Description / Overview
 
 The Cinema Booking System is a Java desktop application designed to simulate how a real cinema ticket booking system works. It allows users to view available movies, check showtimes, select seats, and complete a booking through a simple and interactive graphical interface. The system automatically calculates the total cost, applies tax, generates a receipt, and saves booking records for future viewing. This project was created to demonstrate Object-Oriented Programming concepts while building a practical and user-friendly application.
 
